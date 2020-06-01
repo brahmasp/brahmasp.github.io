@@ -1,16 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Hi, Jon Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7580334-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-7580334-2');
-  </script>
-
   <title>Brahma Pavse</title>
   
   <meta name="author" content="Brahma Pavse">
@@ -37,10 +26,12 @@ I still continue to work as member of the <a href="https://www.cs.utexas.edu/~ps
                 I completed my undergraduate honors thesis and master's thesis under Peter Stone. I was also a member of <a href="https://www.cs.utexas.edu/~AustinVilla/sim/3dsimulation/">UTAustinVilla</a>, our RoboCup robot soccer simulation team.
               </p>
               <p style="text-align:center">
-                <a href="mailto:brahmasp@utexas.edu">Email</a> &nbsp/&nbsp
                 <a href="data/brahma_cv.pdf">CV</a> &nbsp/&nbsp
+                <a href="data/ms_thesis.pdf">MS Thesis</a> &nbsp/&nbsp
+                <a href="mailto:brahmasp@utexas.edu">Email</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=2Dc_GnUAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://www.linkedin.com/in/brahmaspavse/"> LinkedIn </a>
+                <a href="https://www.linkedin.com/in/brahmaspavse/"> LinkedIn </a>/
+                <a href="https://twitter.com/brahmapavse">Twitter</a>/
               </p>
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
@@ -53,6 +44,7 @@ I still continue to work as member of the <a href="https://www.cs.utexas.edu/~ps
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>News</heading>
             <ul>
+              <li>June 2020: Our paper, Reducing Sampling Error in Batch Temporal Difference Learning, was accepted at ICML 2020!</li>
               <li>May 2020: I completed an MS thesis that focused on studying a limitation of a fundamental RL algorithm, temporal difference learning</li>
               <li>January 2020: I will be working on RL for autonomous driving as part of the Bosch Austin Reinforcement Learning Group during Summer 2020!</li>
               <li>June 2019: Our team, UTAustinVilla, won the RoboCup 3D Simulation League Championship.</li>
@@ -66,24 +58,31 @@ I still continue to work as member of the <a href="https://www.cs.utexas.edu/~ps
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
            <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Publications</heading>
+            <heading>Peer-reviewed Conference Papers</heading>
             </td>
             </tr>         
           <tr>
             <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="data/ms_thesis.pdf">
                 <papertitle>Reducing Sampling Error in Batch Temporal Difference Learning </papertitle>
-              </a>
               <br>
-              <strong>Brahma S. Pavse</strong>
+              <strong>Brahma S. Pavse</strong>,
+              <a href="https://idurugkar.github.io/">Ishan Durugkar</a>,
+              <a href="https://www.cs.utexas.edu/~jphanna/">Josiah Hanna</a>,
+              <a href="https://www.cs.utexas.edu/~pstone/">Peter Stone</a>
               <br>
-              <em>MS Thesis.</em>
+              <em>Master's thesis.</em>
               <br>
-              <a href="data/bib/ms_thesis.bib">bibtex</a> / 
-              <p>We propose PSEC-TD(0), an algorithm to correct for policy sampling error in batch TD(0). We conduct a theoretical analysis and empirical study showing that PSEC-TD(0) converges to a more accurate value function compared to TD(0) with respect to the true value function in this finite batch setting.</p>
+              <em>Proceedings of the 37th International Conference on Machine Learning (ICML). July 2020.</em> &nbsp 
+              <br>
+              <p>We identify a source of inaccuracy in the value function computed by batch TD(0) and propose an approach to correct for this inaccuracy. We include a detailed theoretical and empirical analysis.</p>
             </td>
           </tr>
 
+          <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>Peer-reviewed Workshop Papers</heading>
+            </td>
+          </tr> 
           <tr>
             <td style="padding:20px;width:75%;vertical-align:middle">
               <a href="https://export.arxiv.org/pdf/1906.07372">
@@ -98,14 +97,18 @@ I still continue to work as member of the <a href="https://www.cs.utexas.edu/~ps
               <br>
               <em>Undergraduate honors thesis.</em>
               <br>
-              <em>ICML workshop 2019. Under review at IROS 2020.</em> &nbsp 
+              <em>ICML workshop 2019. Under review.</em> &nbsp 
               <br>
               <a href="data/bib/pavseICML2019.bib">bibtex</a> / 
               <a href="data/ridm_vid.mp4">video</a>
               <p>We propose a novel reinforcement learning and imitation from observation algorithm that helps an agent learn from a single observed demonstration with no task-specific information encoded in the state space. We also show that the PID controller can be used as an effective inverse dynamics model.</p>
             </td>
           </tr>
-
+          <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>Book Chapters</heading>
+            </td>
+          </tr>  
           <tr>
             <td style="padding:20px;width:75%;vertical-align:middle">
               <a href="https://www.cs.utexas.edu/~pstone/Papers/bib2html-links/LNAI19-MacAlpine.pdf">
@@ -151,6 +154,7 @@ I still continue to work as member of the <a href="https://www.cs.utexas.edu/~ps
             <ul>
               <li>UT Austin University Honors (2020)</li>
               <li>UT Austin CS Special Departmental Honors (Research) (2020)</li>
+              <li>UT Austin + Bosch Summer Research Funding (2020)</li>
               <li>RoboCup 3D Simulation League World Champions (2019) </li>
               <li>Eva Stevenson Woods Endowed Presidential Scholarship (2019)</li>
               <li>National Instruments Endowed Scholarship (2019)</li>
