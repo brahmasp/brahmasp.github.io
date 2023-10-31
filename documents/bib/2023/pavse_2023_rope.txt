@@ -1,0 +1,7 @@
+@inproceedings{
+pavse2023rope,
+title={State-Action Similarity-Based Representations for Off-Policy Evaluation},
+author={Brahma S. Pavse, Josiah P. Hanna},
+booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+year={2023},
+}
