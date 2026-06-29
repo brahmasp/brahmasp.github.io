@@ -1,34 +1,48 @@
-Read Only by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Brahma S. Pavse — personal academic website
+https://brahmasp.github.io
 
+----------------------------------------------------------------------
+Overview
+----------------------------------------------------------------------
+Static site hosted on GitHub Pages. The page template/design is adapted
+from Kyle Domico's site (https://kyledomico.com), restyled with the
+content in css/custom.css. Bootstrap 5 (grid), FontAwesome, and Google
+Fonts (EB Garamond / Inter / JetBrains Mono) are loaded from CDNs.
 
-Just a super simple single-page responsive template built for personal sites and portfolios
-(although it'd definitely work for other stuff too). Includes a contact form, pre-styled
-elements, and Sass sources.
+----------------------------------------------------------------------
+Layout
+----------------------------------------------------------------------
+  index.html          Home: header, News, Selected Publications
+  publications.html   Full publications list
+  css/custom.css      All styling
+  img/                Site images (avatar, favicon)
+  documents/          CV and paper/bibtex PDFs
+  pubs.bib            BibTeX source for ALL publications
+  featured.bib        BibTeX source for the Selected Publications block
+  refresh_pubs.py     Regenerates the publication HTML from the .bib files
+  generate_sitemap.py Regenerates sitemap.xml
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+----------------------------------------------------------------------
+Updating publications
+----------------------------------------------------------------------
+1. Edit pubs.bib (all papers) and/or featured.bib (homepage highlights).
+2. Run:  python3 refresh_pubs.py
+   - Rewrites the block between the <!-- PUBLICATIONS_BLOCK --> markers
+     in publications.html (grouped by year).
+   - Rewrites the block between the <!-- FEATURED_PUBLICATIONS_BLOCK -->
+     markers in index.html (flat list, in bib-file order).
+3. (Optional) Run:  python3 generate_sitemap.py
 
-(* = Not included)
+Requires: python3 + bibtexparser  (pip install bibtexparser)
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+BibTeX field notes (read by refresh_pubs.py):
+  url    -> "PDF" button     code -> "Code" button     doi -> "DOI"
+  slides/video/poster -> matching buttons
+  Entry type sets the colored box: inproceedings=conference,
+  article=journal, mastersthesis/bachelorsthesis/phdthesis=thesis, etc.
+  The author named "Brahma S. Pavse" is bolded automatically.
 
-AJ
-aj@lkn.io | @ajlkn
-
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+----------------------------------------------------------------------
+Local preview
+----------------------------------------------------------------------
+  python3 -m http.server 8000   then open http://localhost:8000

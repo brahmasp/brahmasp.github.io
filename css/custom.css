@@ -1,0 +1,614 @@
+/* ==========================================================================
+   Brahma S. Pavse — academic site
+   Template design adapted from Kyle Domico (kyledomico.com)
+   Palette: off-white, charcoal, UW crimson accent
+   Type:    EB Garamond (headings) + Inter (body)
+   ========================================================================== */
+
+:root {
+  --bg:           #FDF1DE;
+  --bg-soft:      #f6e8ce;
+  --rule:         #eadfc4;
+  --rule-strong:  #d8c8a6;
+  --text:         #1a1a1a;
+  --text-muted:   #555;
+  --text-faint:   #7a7568;
+  --accent:       #9b0000;   /* UW crimson */
+  --accent-dark:  #6b0000;
+
+  --serif: "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
+  --sans:  "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
+  --mono:  "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --measure: 880px;
+  --measure-wide: 1180px;
+}
+
+/* ---------- Base ---------- */
+
+html {
+  /* Use subpixel rendering (not grayscale) so Computer Modern's thin
+     strokes render heavier/darker on screen. */
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  /* Faux-thicken Computer Modern so body copy isn't too light. */
+  -webkit-text-stroke: 0.014em currentColor;
+}
+
+/* Keep monospaced code/bibtex crisp — no faux-bolding there. */
+code, pre, kbd, samp, .bibtex-content {
+  -webkit-text-stroke: 0;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--text);
+}
+
+em, i {
+  color: var(--text-muted);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2rem 0;
+  opacity: 1;
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 2.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-top: 1.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+}
+
+/* Drop the bold-everything cargo from the templates */
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong { font-weight: inherit; }
+
+/* ---------- Links ---------- */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-dark);
+  border-bottom-color: var(--accent-dark);
+}
+
+/* ---------- Layout / containers ---------- */
+
+/* Strip the Bootstrap card chrome the old template leaned on */
+.container {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-top: 1.5rem;
+  max-width: var(--measure-wide);
+}
+
+/* Single readable column for prose-heavy pages */
+.container.prose {
+  max-width: var(--measure);
+}
+
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.5rem; }
+  .container { padding-left: 1.1rem; padding-right: 1.1rem; }
+}
+
+/* ---------- Navigation ---------- */
+
+.navbar {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 0;
+}
+
+.navbar .container-fluid {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.navbar-brand {
+  font-family: var(--serif);
+  color: var(--text) !important;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  border-bottom: none !important;
+}
+
+.navbar-brand:hover { color: var(--accent) !important; }
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 400;
+  font-size: 0.97rem;
+  padding: 0.25rem 0.9rem !important;
+  border-bottom: none !important;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  justify-content: flex-end !important;
+}
+
+@media (max-width: 768px) {
+  .navbar .container-fluid { padding: 0 1.1rem; }
+}
+
+#navbar-toggle-cbox { display: none; }
+#navbar-toggle-cbox:checked ~ .collapse { display: block; }
+
+/* ---------- Hero / profile ---------- */
+
+.profile-image {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.profile-image:hover { transform: scale(1.01); }
+
+.role-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+  margin: 1rem 0 1.25rem;
+}
+
+.icons a {
+  border-bottom: none !important;
+  display: inline-flex;
+  line-height: 0;
+}
+
+.big-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--text-muted);
+  transition: fill 0.15s ease;
+}
+
+.icons a:hover .big-icon { fill: var(--accent); }
+
+/* FontAwesome glyph icons in the header social row (email, twitter) */
+.icons a i {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.icons a:hover i { color: var(--accent); }
+
+/* Contact line directly under social icons */
+.contact-line {
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.contact-line .contact-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1.25rem;
+}
+
+.contact-line .contact-item i {
+  color: var(--text-faint);
+  width: 1.1rem;
+  margin-right: 0.45rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.contact-line a { color: var(--accent); }
+
+/* ---------- Lists (default) ---------- */
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0.15em 0;
+  border-left: none;
+}
+
+/* ---------- Publication entries ---------- */
+
+.pub-list { padding-left: 0; }
+
+.pub-list > li {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.pub-list a:not(.btn) {
+  color: var(--text);
+  font-weight: 500;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.pub-list a:not(.btn):hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.pub-list em {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+.pub-list em strong { color: var(--text); }
+
+/* Category tag: text-only, small caps, neutral */
+.box {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.box:before {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: transparent;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  margin-right: 0.5rem;
+  position: relative;
+  bottom: 1px;
+  vertical-align: middle;
+}
+
+.conference:before        { content: "Conference"; color: #1f4e79; border-color: #1f4e79; }
+.journal:before           { content: "Journal";    color: #6b0000; border-color: #6b0000; }
+.workshop:before          { content: "Workshop";   color: #2d6a4f; border-color: #2d6a4f; }
+.technical-report:before  { content: "Preprint";   color: #555;    border-color: #999; }
+.preprint:before          { content: "Preprint";   color: #555;    border-color: #999; }
+.thesis:before            { content: "Thesis";     color: #5a3e85; border-color: #5a3e85; }
+.talk:before              { content: "Talk";       color: #8a6d00; border-color: #8a6d00; }
+
+/* Buttons (PDF / Cite) — outline style */
+.publication-buttons {
+  margin-top: 0.55rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.publication-buttons .btn,
+.btn-danger {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--rule-strong) !important;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.7rem !important;
+  border-radius: 3px !important;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.publication-buttons .btn:hover,
+.btn-danger:hover {
+  color: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
+  background: rgba(155, 0, 0, 0.04) !important;
+}
+
+.publication-buttons .btn i,
+.btn-danger i {
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+}
+
+/* BibTeX expandable block */
+.bibtex-content {
+  display: none;
+  margin-top: 0.6rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+
+.bibtex-content pre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: transparent;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bibtex-content code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.toggle-bibtex { display: none; }
+.toggle-bibtex:checked + .bibtex-content { display: block; }
+
+/* ---------- News list ---------- */
+
+.news-list { padding: 0; }
+.news-list ul { margin: 0; padding-left: 0; list-style: none; }
+
+.news-list li {
+  position: relative;
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  font-size: 0.99rem;
+  color: var(--text-muted);
+}
+
+.news-list li:last-child { border-bottom: none; }
+
+.news-list li::before {
+  content: "\2192";  /* → arrow */
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.news-list li strong {
+  color: var(--text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.4rem;
+}
+
+.news-list li > strong:first-child {
+  display: inline-block;
+  min-width: 5.5rem;
+}
+
+/* ---------- Personal / service page figures ---------- */
+
+/* Single floated figure (used on personal page) */
+.section-image-wrap {
+  float: right;
+  margin: 0.25rem 0 1.25rem 1.75rem;
+  max-width: 280px;
+  width: 38%;
+}
+
+/* Stacked column of figures floated flush to the right */
+.figure-stack {
+  float: right;
+  width: 30%;
+  max-width: 320px;
+  margin: 0.25rem 0 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.figure-stack .section-image-wrap {
+  float: none;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .figure-stack {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 1.5rem auto;
+  }
+}
+
+.section-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule-strong);
+  background: #fff;
+  padding: 4px;
+}
+
+.section-image-wrap figcaption {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-style: italic;
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+/* Old red-gradient frame — neutralized */
+.golden-frame {
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-image: none;
+  box-shadow: none;
+  display: block;
+}
+
+.golden-frame .img-fluid,
+.golden-frame img {
+  border: 1px solid var(--rule-strong);
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Achievements grid (personal page) ---------- */
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 2rem;
+}
+
+.achievements-grid ul {
+  padding-left: 1.1rem;
+  list-style-type: disc;
+  color: var(--text-muted);
+}
+
+.achievements-grid ul li {
+  border-left: none;
+  padding: 0.15em 0;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.achievements-grid ul li::marker {
+  color: var(--rule-strong);
+}
+
+@media (max-width: 768px) {
+  .section-image-wrap {
+    float: none;
+    margin: 0 auto 1.5rem auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  .achievements-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Service page lists ---------- */
+
+.service-list { padding-left: 0; }
+
+.service-list li {
+  padding: 0.25rem 0;
+  font-size: 0.97rem;
+}
+
+.service-list li strong { color: var(--text); }
+.service-list li em { color: var(--text-muted); }
+
+/* ---------- Misc legacy classes preserved ---------- */
+
+.award { color: var(--accent); font-style: italic; }
+
+.close-bibtex {
+  display: block;
+  margin-top: 10px;
+  color: var(--accent);
+}
+.close-bibtex:hover { text-decoration: underline; }
+
+/* ---------- Footer space ---------- */
+
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--rule);
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  text-align: center;
+}
